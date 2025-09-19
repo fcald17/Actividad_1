@@ -1,18 +1,18 @@
+#Importar todos los elementos de la biblioteca gráfica 'turtle'
 from turtle import *
-
+#Importar vectores para movimiento de la bibliotec 'freegames'
 from freegames import vector
 
-
+#Función para generar una línea desde el punto inicial hasta el final
 def line(start, end):
-    """Draw line from start to end."""
+
     up()
     goto(start.x, start.y)
     down()
     goto(end.x, end.y)
 
-
+#Función para generar un cuadrado desde el punto inicial hasta el final
 def square(start, end):
-    """Draw square from start to end."""
     up()
     goto(start.x, start.y)
     down()
@@ -24,14 +24,12 @@ def square(start, end):
 
     end_fill()
 
-
+#Función para generar un círculo usando los puntos de inicio y fin como radio
 def circle(start, end):
-    """Draw circle from start to end."""
-    pass  # TODO
 
 
+#Función para generar un rectángulo con las coordenadas x de inicio y fin como ancho y las coordenadas de y como alto
 def rectangle(start, end):
-    """Draw rectangle from start to end."""
     up()
     goto(start.x, start.y)
     down()
@@ -45,8 +43,8 @@ def rectangle(start, end):
 
     end_fill()
 
+#Función para generar un triángulo con la diferencia entre las coordenadas x de inicio y fin como el largo de cada lado
 def triangle(start, end):
-    """Draw triangle from start to end."""
     up()
     goto(start.x, start.y)
     down()
