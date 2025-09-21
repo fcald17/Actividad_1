@@ -1,5 +1,8 @@
 #Importar todos los elementos de la biblioteca gráfica 'turtle'
 from turtle import *
+from freegames import vector
+import math
+
 #Importar vectores para movimiento de la bibliotec 'freegames'
 from freegames import vector
 
@@ -25,8 +28,19 @@ def square(start, end):
     end_fill()
 
 #Función para generar un círculo usando los puntos de inicio y fin como radio
-def circle(start, end):
+def circ(start, end):
+    """Draw circle from start to end."""
 
+    up()
+    #calcula el radio como la distancia entre start y end
+    radius = math.hypot(end.x - start.x, end.y - start.y)
+    #ir al borde derecho del círculo
+    goto(start.x + radius, start.y)
+    down()
+    begin_fill()
+    turtle.circle(radius)
+    #aquí sí recibe un número real 
+    end_fill()
 
 #Función para generar un rectángulo con las coordenadas x de inicio y fin como ancho y las coordenadas de y como alto
 def rectangle(start, end):
@@ -81,6 +95,7 @@ setup(420, 420, 370, 0)
 onscreenclick(tap)
 listen()
 onkey(undo, 'u')
+onkey(lambda: color('purple'), 'P') #nuevo color agregado
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
@@ -92,3 +107,4 @@ onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
+
