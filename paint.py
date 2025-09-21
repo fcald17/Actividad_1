@@ -1,7 +1,6 @@
 from turtle import *
-
 from freegames import vector
-
+import math
 
 def line(start, end):
     """Draw line from start to end."""
@@ -25,9 +24,19 @@ def square(start, end):
     end_fill()
 
 
-def circle(start, end):
+def circ(start, end):
     """Draw circle from start to end."""
-    pass  # TODO
+
+    up()
+    #calcula el radio como la distancia entre start y end
+    radius = math.hypot(end.x - start.x, end.y - start.y)
+    #ir al borde derecho del círculo
+    goto(start.x + radius, start.y)
+    down()
+    begin_fill()
+    turtle.circle(radius)
+    #aquí sí recibe un número real 
+    end_fill()
 
 
 def rectangle(start, end):
@@ -83,6 +92,7 @@ setup(420, 420, 370, 0)
 onscreenclick(tap)
 listen()
 onkey(undo, 'u')
+onkey(lambda: color('purple'), 'P') #nuevo color agregado
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
@@ -94,3 +104,4 @@ onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
+
